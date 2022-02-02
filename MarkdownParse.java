@@ -28,9 +28,17 @@ public class MarkdownParse {
             if (nextCloseBracket + 1 == openParen) {
                 int containsSpace = markdown.substring(openParen + 1, closeParen).indexOf(" ");
                 
+                //count backticks preceding nextOpenBracket
+                int backticks = 0;
+                for (int i = 0; i < nextOpenBracket; i++) {
+                    if(markdown.charAt(i) == '`') {
+                        backticks++;
+                    }
+                }
                 if ((nextOpenBracket == 0 || 
                     !(markdown.substring(nextOpenBracket - 1, nextOpenBracket).equals("!")))
-                    && containsSpace == -1) {
+                    && containsSpace == -1
+                    && backticks%2 == 0) {
                     toReturn.add(markdown.substring(openParen + 1, closeParen));
                 }
 
