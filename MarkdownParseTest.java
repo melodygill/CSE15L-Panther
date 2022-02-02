@@ -76,4 +76,9 @@ public class MarkdownParseTest {
         List<String> expected = List.of();
         assertEquals(expected, MarkdownParse.getLinks(contents));
     }
+
+    @Test
+    public void failTest() {
+        assertEquals(2, 1+3);
+    }
 }
