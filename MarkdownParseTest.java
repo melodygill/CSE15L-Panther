@@ -91,6 +91,7 @@ public class MarkdownParseTest {
         assertEquals(expected, MarkdownParse.getLinks(contents));
     }
 
+    //tests for lab report 4
     @Test
     public void snippet1() throws IOException {
         Path fileName = Path.of("./snippet1.md");
@@ -111,7 +112,7 @@ public class MarkdownParseTest {
     public void snippet3() throws IOException {
         Path fileName = Path.of("./snippet3.md");
 	    String contents = Files.readString(fileName);
-        List<String> expected = List.of("https://www.twitter.com", "https://ucsd-cse15l-w22.github.io/", "(https://cse.ucsd.edu/");
+        List<String> expected = List.of("https://www.twitter.com", "https://ucsd-cse15l-w22.github.io/", "https://cse.ucsd.edu/");
         assertEquals(expected, MarkdownParse.getLinks(contents));
     }
 }
